@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('graffitis', 'GraffitiController@store');
+Route::get('graffitis', 'GraffitiController@read');

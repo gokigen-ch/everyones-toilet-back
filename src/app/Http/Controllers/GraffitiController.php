@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class GraffitiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 落書きデータの読み出し
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function read()
     {
-        //
+        // TODO: 削除済みデータを省いて読み出せるようにしたい。
+        return \App\Graffiti::all();
     }
 
     /**
