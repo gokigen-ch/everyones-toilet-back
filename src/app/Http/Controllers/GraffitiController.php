@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Graffiti;
 use Illuminate\Http\Request;
+use App\Events\AddGraffitiEvent;
 
 class GraffitiController extends Controller
 {
@@ -27,6 +28,9 @@ class GraffitiController extends Controller
     public function store(Request $request, int $room)
     {
         // TODO: バリデーションする
+
+        event(new AddGraffitiEvent($request->input('text'), $request->input('position_x'), $request->input('position_y'), $room));
+
         \App\Graffiti::create(
             [
                 'position_x' => $request->input('position_x'),
