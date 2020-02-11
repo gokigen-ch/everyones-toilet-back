@@ -18,6 +18,7 @@ class CreateGraffitisTable extends Migration
             $table->text('text');
             $table->bigInteger('position_x');
             $table->bigInteger('position_y');
+            $table->bigInteger('room');
             $table->boolean('cleaned')->default(false);
             $table->timestamps();
         });
