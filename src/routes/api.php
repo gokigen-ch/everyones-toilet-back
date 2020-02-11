@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('graffitis', 'GraffitiController@store');
-Route::get('graffitis', 'GraffitiController@read');
+Route::post('rooms/{room}/graffitis', 'GraffitiController@store');
+Route::get('rooms/{room}/graffitis', 'GraffitiController@read');

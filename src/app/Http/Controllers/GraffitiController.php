@@ -12,10 +12,10 @@ class GraffitiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function read()
+    public function read(Request $request, int $room)
     {
         // TODO: 削除済みデータを省いて読み出せるようにしたい。
-        return \App\Graffiti::all();
+        return \App\Graffiti::where('room', $room)->get();
     }
 
     /**
@@ -24,13 +24,14 @@ class GraffitiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, int $room)
     {
         // TODO: バリデーションする
         \App\Graffiti::create(
             [
                 'position_x' => $request->input('position_x'),
                 'position_y' => $request->input('position_y'),
+                'room' => $room,
                 'text' => $request->input('text')
             ]
         );
