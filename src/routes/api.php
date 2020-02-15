@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('rooms/{room}/graffitis', 'GraffitiController@store');
+Route::get('rooms/{room}/graffitis', 'GraffitiController@read');
